@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47800517909",
+    "project_id": "learningchatapplication",
+    "storage_bucket": "learningchatapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47800517909:android:976ee5badf5feeb516951c",
+        "android_client_info": {
+          "package_name": "com.vik.learningchatapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47800517909-gilec0hnbqj5dl6jdrupnokicr4tlmnc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOxIy7Ma-pSqap0Bfj-KkUKxsD9d-0-M0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47800517909-gilec0hnbqj5dl6jdrupnokicr4tlmnc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

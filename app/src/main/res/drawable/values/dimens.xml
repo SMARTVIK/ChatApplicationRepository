@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="tx18sp">11.2sp</dimen>
+    <dimen name="tx20dp">12.5dp</dimen>
+    <dimen name="tx30dp">18.8dp</dimen>
+    <dimen name="tx5dp">3.1dp</dimen>
+    <dimen name="tx10dp">6.2dp</dimen>
+    <dimen name="tx16dp">20dp</dimen>
+
+
+    <dimen name="textSizeFont26">26sp</dimen>
+    <dimen name="space_16dp">16dp</dimen>
+    <dimen name="space_8dp">8dp</dimen>
+    <dimen name="size_28dp">50dp</dimen>
+    <dimen name="textSizeFont15">15sp</dimen>
+
+    <dimen name="size_36dp">36dp</dimen>
+    <dimen name="size_38dp">38dp</dimen>
+
+
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="increased_padding">40dp</dimen>
+
+    <dimen name="default_text_size">16sp</dimen>
+    <dimen name="img_width_height">120dp</dimen>
+    <dimen name="slide_title">20sp</dimen>
+    <dimen name="desc_padding">32dp</dimen>
+    <dimen name="slide_desc">18sp</dimen>
+    <dimen name="dots_height">30dp</dimen>
+    <dimen name="dots_margin_bottom">20dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+</resources>

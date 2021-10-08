@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4a78ad</color>
+    <color name="colorPrimaryDark">#4a78ad</color>
+    <color name="colorAccent">#4a78ad</color>
+
+    <color name="colorFab">#e6e6e6</color>
+    <color name="colorBg">#45a6bb</color>
+
+    <color name="redtype">#f50f23</color>
+    <color name="pinktype">#f50073</color>
+    <color name="black">#000000</color>
+    <color name="purpletype">#452672</color>
+
+    <color name="themeColor">#28D5DD</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkGrey">#303030</color>
+
+    <color name="textColorPrimary">#232325</color>
+    <color name="tintColorPrimary">#0076ff</color>
+    <color name="markLayerIconColor">#e0eeff</color>
+    <color name="buttonOutlineColor">#28D5DD</color>
+    <color name="rippleColor">#f0f0f0</color>
+    <color name="transparent">#00000000</color>
+    <color name="iconColor">#FF16B3BA</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_selected</item>
+        <item>@color/dot_selected</item>
+        <item>@color/dot_selected</item>
+        <item>@color/dot_selected</item>
+        <item>@color/dot_selected</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_not_selected</item>
+        <item>@color/dot_not_selected</item>
+        <item>@color/dot_not_selected</item>
+        <item>@color/dot_not_selected</item>
+        <item>@color/dot_not_selected</item>
+    </array>
+
+    <!-- dots active colors -->
+    <color name="dot_not_selected">#3F51B5</color>
+    <color name="dot_selected">#ffffff</color>
+    <color name="chat_background">#EDEDED</color>
+    <color name="gray">#A2A2A2</color>
+    <color name="red">#e91e63</color>
+    <color name="linkColor">#2196F3</color>
+
+</resources>

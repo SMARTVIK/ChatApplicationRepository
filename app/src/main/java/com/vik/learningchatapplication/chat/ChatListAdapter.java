@@ -18,10 +18,11 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.translator.translation.chat.smart.R;
-import com.translator.translation.chat.smart.common.Constants;
-import com.translator.translation.chat.smart.common.Extras;
-import com.translator.translation.chat.smart.common.Util;
+import com.vik.learningchatapplication.R;
+import com.vik.learningchatapplication.common.Constants;
+import com.vik.learningchatapplication.common.Extras;
+import com.vik.learningchatapplication.common.Util;
+
 
 import java.util.List;
 
@@ -56,8 +57,8 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatLi
             public void onSuccess(Uri uri) {
                 Glide.with(context)
                         .load(uri)
-                        .placeholder(R.drawable.default_profile)
-                        .error(R.drawable.default_profile)
+                        .placeholder(R.drawable.bubble)
+                        .error(R.drawable.bubble)
                         .into(holder.ivProfile);
 
             }

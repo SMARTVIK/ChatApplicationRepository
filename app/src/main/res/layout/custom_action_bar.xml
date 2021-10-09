@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/colorPrimary"
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
@@ -14,7 +13,7 @@
         android:layout_width="42dp"
         android:layout_height="42dp"
         app:civ_border="false"
-        android:src="@drawable/default_profile"/>
+        android:src="@drawable/bubble"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

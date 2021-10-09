@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.vik.learningchatapplication.common.NodeNames
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -62,8 +63,8 @@ class ProfileActivity : AppCompatActivity() {
             email.setText(currentUser.email)
             serverFileUri = currentUser.photoUrl!!
             serverFileUri?.let {
-                Glide.with(this).load(it).placeholder(R.drawable.default_profile)
-                    .error(R.drawable.default_profile).into(imageView)
+                Glide.with(this).load(it).placeholder(R.drawable.bubble)
+                    .error(R.drawable.bubble).into(imageView)
             }
         }
 

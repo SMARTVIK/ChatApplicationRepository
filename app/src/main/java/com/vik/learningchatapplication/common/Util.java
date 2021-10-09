@@ -24,7 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
-import com.translator.translation.chat.smart.R;
+import com.vik.learningchatapplication.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,7 +84,7 @@ public class Util {
             @SuppressLint("StringFormatInvalid")
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.child(NodeNames.DEVICE_TOKEN).getValue()!=null){
+                if(dataSnapshot.child(NodeNames.DEVICE_TOKEN).getValue()==null){
                     return;
                 }
                 String deviceToken = dataSnapshot.child(NodeNames.DEVICE_TOKEN).getValue().toString();

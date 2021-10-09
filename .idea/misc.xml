@@ -4,8 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_camera.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/drawable/ic_file_download.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/drawable/ic_forward.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_pause.xml" value="0.28177083333333336" />
+        <entry key="app/src/main/res/drawable/ic_play.xml" value="0.28177083333333336" />
+        <entry key="app/src/main/res/drawable/ic_share.xml" value="0.18020833333333333" />
+        <entry key="app/src/main/res/drawable/received_message_background.xml" value="0.18020833333333333" />
         <entry key="app/src/main/res/drawable/red_circle.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/drawable/sent_message_background.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_chat.xml" value="0.302536231884058" />
         <entry key="app/src/main/res/layout/activity_chat_list.xml" value="0.28351449275362317" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1287037037037037" />
@@ -15,6 +25,10 @@
         <entry key="app/src/main/res/layout/chat_file_options.xml" value="0.18614130434782608" />
         <entry key="app/src/main/res/layout/chat_list_layout.xml" value="0.18614130434782608" />
         <entry key="app/src/main/res/layout/content_maine.xml" value="0.18614130434782608" />
+        <entry key="app/src/main/res/layout/custom_action_bar.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/file_progress.xml" value="0.23143115942028986" />
+        <entry key="app/src/main/res/layout/message_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_chat_options.xml" value="0.1640625" />
         <entry key="app/src/main/res/menu/menu_picture.xml" value="0.35104166666666664" />
       </map>
     </option>

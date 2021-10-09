@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,7 @@ import java.util.List;
 
 public class ChatActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = ChatActivity.class.getSimpleName();
     private ImageView ivSend, ivAttachment, ivProfile;
     private TextView tvUserName, tvUserStatus;
 
@@ -103,6 +105,19 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
+        Uri uri = getIntent().getData();
+        if (uri != null) {
+            // if the uri is not null then we are getting the
+            // path segments and storing it in list.
+            List<String> parameters = uri.getPathSegments();
+            // after that we are extracting string from that parameters.
+            String param = parameters.get(parameters.size() - 1);
+            // on below line we are setting
+            // that string to our text view
+            // which we got as params.
+            chatUserId = param;
+            Log.d(TAG, "onCreate: ");
+        }
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle("");
@@ -145,6 +160,9 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         //if (getIntent().hasExtra(Extras.PHOTO_NAME))
             //getIntent().getStringExtra(Extras.PHOTO_NAME);
 
+        if(userName != null && userName.isEmpty()) {
+            userName = mRootRef.child(NodeNames.USERS).child(NodeNames.NAME).getKey();
+        }
 
         tvUserName.setText(userName);
 
@@ -365,6 +383,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loadMessages() {
         messagesList.clear();
+
         databaseReferenceMessages = mRootRef.child(NodeNames.MESSAGES).child(currentUserId).child(chatUserId);
 
         Query messageQuery = databaseReferenceMessages.limitToLast(currentPage * RECORD_PER_PAGE);

@@ -21,8 +21,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
-import com.translator.translation.chat.smart.R;
-import com.translator.translation.chat.smart.common.Constants;
+import com.vik.learningchatapplication.R;
+import com.vik.learningchatapplication.common.Constants;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

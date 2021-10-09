@@ -56,6 +56,7 @@ public class ChatListActivity extends AppCompatActivity {
     private void initOtherViewsAndListeners() {
         databaseReferenceUsers = FirebaseDatabase.getInstance().getReference().child(NodeNames.USERS);
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        Log.d(TAG, "initOtherViewsAndListeners: "+currentUser.getDisplayName());
         databaseReferenceChats = FirebaseDatabase.getInstance().getReference().child(NodeNames.CHATS).child(currentUser.getUid());
         query = databaseReferenceChats.orderByChild(NodeNames.TIME_STAMP);
 

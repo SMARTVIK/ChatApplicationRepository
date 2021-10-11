@@ -30,6 +30,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -60,6 +61,8 @@ import com.vik.learningchatapplication.common.Constants;
 import com.vik.learningchatapplication.common.Extras;
 import com.vik.learningchatapplication.common.NodeNames;
 import com.vik.learningchatapplication.common.Util;
+import com.vik.learningchatapplication.db.ChatRepository;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
@@ -90,6 +93,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private static final int REQUEST_CODE_CAPTURE_IMAGE = 102;
 
     private static final int REQUEST_CODE_FORWARD_MESSAGE = 104;
+    private ChatRepository repository = null;
 
 
     private DatabaseReference databaseReferenceMessages;
@@ -104,7 +108,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
+        repository = ChatRepository.getInstance(this);
         Uri uri = getIntent().getData();
         if (uri != null) {
             // if the uri is not null then we are getting the
@@ -395,11 +399,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 MessageModel message = dataSnapshot.getValue(MessageModel.class);
-
-                messagesList.add(message);
-                messagesAdapter.notifyDataSetChanged();
-                rvMessages.scrollToPosition(messagesList.size() - 1);
-                srlMessages.setRefreshing(false);
+                repository.insertMessage(message);
             }
 
             @Override
@@ -422,6 +422,15 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                 srlMessages.setRefreshing(false);
             }
         };
+
+        repository.getMessages(currentUserId, chatUserId).observe(this, messageModels -> {
+            if (messageModels != null) {
+                messagesList.add(messageModels.get(messageModels.size() - 1));
+                messagesAdapter.notifyDataSetChanged();
+                rvMessages.scrollToPosition(messagesList.size() - 1);
+                srlMessages.setRefreshing(false);
+            }
+        });
 
         messageQuery.addChildEventListener(childEventListener);
     }

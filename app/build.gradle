@@ -50,4 +50,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.mikhaellopez:circularimageview:3.0.2'
     implementation 'com.android.volley:volley:1.2.1'
+
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
 }

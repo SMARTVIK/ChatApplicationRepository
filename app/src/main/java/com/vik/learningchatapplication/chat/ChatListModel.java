@@ -1,7 +1,17 @@
 package com.vik.learningchatapplication.chat;
 
-public class ChatListModel {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class ChatListModel implements Parcelable {
+
+    @PrimaryKey
+    @NonNull
     private  String userId;
     private  String userName;
     private  String photoName;
@@ -17,6 +27,27 @@ public class ChatListModel {
         this.lastMessage = lastMessage;
         this.lastMessageTime = lastMessageTime;
     }
+
+    protected ChatListModel(Parcel in) {
+        userId = in.readString();
+        userName = in.readString();
+        photoName = in.readString();
+        unreadCount = in.readString();
+        lastMessage = in.readString();
+        lastMessageTime = in.readString();
+    }
+
+    public static final Creator<ChatListModel> CREATOR = new Creator<ChatListModel>() {
+        @Override
+        public ChatListModel createFromParcel(Parcel in) {
+            return new ChatListModel(in);
+        }
+
+        @Override
+        public ChatListModel[] newArray(int size) {
+            return new ChatListModel[size];
+        }
+    };
 
     public String getUserId() {
         return userId;
@@ -64,5 +95,20 @@ public class ChatListModel {
 
     public void setLastMessageTime(String lastMessageTime) {
         this.lastMessageTime = lastMessageTime;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(userId);
+        parcel.writeString(userName);
+        parcel.writeString(photoName);
+        parcel.writeString(unreadCount);
+        parcel.writeString(lastMessage);
+        parcel.writeString(lastMessageTime);
     }
 }

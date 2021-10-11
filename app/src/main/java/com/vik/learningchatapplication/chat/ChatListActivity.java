@@ -23,6 +23,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.vik.learningchatapplication.R;
 import com.vik.learningchatapplication.common.NodeNames;
+import com.vik.learningchatapplication.db.ChatRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public class ChatListActivity extends AppCompatActivity {
     private TextView tvEmptyChatList;
     private  ChatListAdapter chatListAdapter;
     private List<ChatListModel> chatListModelList;
+    private ChatRepository chatRepository;
 
     private DatabaseReference databaseReferenceChats, databaseReferenceUsers;
     private FirebaseUser currentUser;
@@ -49,6 +51,7 @@ public class ChatListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_list);
+        chatRepository = ChatRepository.getInstance(this);
         initViews();
         initOtherViewsAndListeners();
     }
@@ -150,12 +153,11 @@ public class ChatListActivity extends AppCompatActivity {
 
                 ChatListModel chatListModel = new ChatListModel(userId, fullName, photoName,unreadCount,lastMessage,lastMessageTime);
 
-                if(isNew) {
+                if (isNew) {
                     chatListModelList.add(chatListModel);
                     userIds.add(userId);
-                }
-                else {
-                    int indexOfClickedUser = userIds.indexOf(userId) ;
+                } else {
+                    int indexOfClickedUser = userIds.indexOf(userId);
                     chatListModelList.set(indexOfClickedUser, chatListModel);
                 }
 

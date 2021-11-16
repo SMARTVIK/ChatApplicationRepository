@@ -35,6 +35,7 @@ public class Constants {
     public static final String TYPING_STOPPED = "0" ;
     public static final String TYPING_STARTED = "1" ;
 
+    public static final String USER_DATA = "user_data";
 }
 
 

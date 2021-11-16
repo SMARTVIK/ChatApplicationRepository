@@ -23,6 +23,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.vik.learningchatapplication.R;
 import com.vik.learningchatapplication.common.NodeNames;
+import com.vik.learningchatapplication.common.User;
+import com.vik.learningchatapplication.common.Util;
 import com.vik.learningchatapplication.db.ChatRepository;
 
 import java.util.ArrayList;
@@ -52,6 +54,12 @@ public class ChatListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_list);
         chatRepository = ChatRepository.getInstance(this);
+        User user = new User("Vivek");
+        Util.saveDataInStorage(this, user);
+        findViewById(R.id.tvEmptyChatList).setOnClickListener(v -> {
+            User user1 = Util.getDataFromStorage(this);
+            Log.d(TAG, "onCreate: "+user1.name);
+        });
         initViews();
         initOtherViewsAndListeners();
     }

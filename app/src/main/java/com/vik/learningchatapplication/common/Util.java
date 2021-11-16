@@ -1,7 +1,11 @@
 package com.vik.learningchatapplication.common;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.widget.Toast;
 
@@ -24,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.vik.learningchatapplication.R;
 
 import org.json.JSONException;
@@ -256,6 +261,24 @@ public class Util {
         }
 
     }
+
+
+    public static User getDataFromStorage(Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences("user_data_prefs",MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString(Constants.USER_DATA, "");
+        return gson.fromJson(json, User.class);
+    }
+
+    public static void saveDataInStorage(Context context, User user) {
+        SharedPreferences mPrefs = context.getSharedPreferences("user_data_prefs",MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        prefsEditor.putString(Constants.USER_DATA, json);
+        prefsEditor.apply();
+    }
+
 
 }
 

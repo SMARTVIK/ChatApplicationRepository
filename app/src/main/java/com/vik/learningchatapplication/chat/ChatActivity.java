@@ -51,6 +51,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -103,6 +105,7 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
     private LinearLayout llProgress;
     private String userName, photoName;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -383,6 +386,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(ChatActivity.this, getString(R.string.failed_to_send_message, ex.getMessage())
                     , Toast.LENGTH_SHORT).show();
         }
+        setup();
+        setupCacheSize();
     }
 
     private void loadMessages() {
@@ -433,6 +438,21 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         messageQuery.addChildEventListener(childEventListener);
+    }
+
+    public void setup() {
+        db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
+    }
+
+    public void setupCacheSize() {
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
+                .build();
+        db.setFirestoreSettings(settings);
     }
 
     @Override
